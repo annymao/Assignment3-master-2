@@ -89,6 +89,7 @@ public class PokeGen {
                     setPokemonIcon(id - 1, currentLabel);
                 } else {
                     //if selected the"-----", set the imgIcon=null
+                    nickNameField.setText("");
                     currentLabel.setIcon(null);
                 }
 
@@ -99,17 +100,17 @@ public class PokeGen {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (pokemonMap.containsKey(currentSelectedPanel)) {
-                    PokemonIndividualData pokemon = pokemonMap.get(currentSelectedPanel);
-                    String str = Integer.toString(pokemon.getId());
-                    str = str.concat(":");
-                    str = str.concat(pokemon.getSpeciesName());
-                    speciesComboBox.setSelectedItem(str);
+                    //hold the image of the previous slot
+                    loadPokemon(currentSelectedPanel);
                 } else {
+                    //if previous selected slot is not saved yet,then set it to"---------'
                     speciesComboBox.setSelectedIndex(0);
                 }
+                //change the selected slot
                 currentSelectedPanel.setBorder(BorderFactory.createEtchedBorder());
                 currentSelectedPanel = (JPanel) e.getComponent();
                 currentSelectedPanel.setBorder(BorderFactory.createBevelBorder(1));
+                //load data from the current panel
                 loadPokemon(currentSelectedPanel);
             }
 
@@ -133,6 +134,7 @@ public class PokeGen {
 
             }
         };
+        //slots' Listener
         slot0.addMouseListener(click);
         slot1.addMouseListener(click);
         slot2.addMouseListener(click);
@@ -142,48 +144,16 @@ public class PokeGen {
         slot6.addMouseListener(click);
         slot7.addMouseListener(click);
         slot8.addMouseListener(click);
-        MouseListener text = new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (Integer.parseInt(currentSelectedField.getText()) < 0)
-                    currentSelectedField.setText("0");
-                else if (Integer.parseInt(currentSelectedField.getText()) > 32)
-                    currentSelectedField.setText("32");
-                currentSelectedField = (JTextField) e.getComponent();
 
-            }
+        // Field Listener
 
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        };
-        hpField.addMouseListener(text);
-        atkField.addMouseListener(text);
-        defField.addMouseListener(text);
-        spAtkField.addMouseListener(text);
-        spDefField.addMouseListener(text);
-        speedField.addMouseListener(text);
+        //saveButton
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
+                //set the pokemon data of current selected slot
                 setPokemon(currentSelectedPanel);
-
+                //save the data int json file
                 try {
                     saveFile("morris_new_pokemon.json");
                 } catch (IOException e) {
@@ -191,11 +161,16 @@ public class PokeGen {
                 }
             }
         });
+
+        //delete button
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
+                //remove the slot selected
                 pokemonMap.remove(currentSelectedPanel);
+                //set combo box to "--------"
                 speciesComboBox.setSelectedIndex(0);
+                //save the file
                 try {
                     saveFile("morris_new_pokemon.json");
                 } catch (IOException e) {
@@ -204,11 +179,14 @@ public class PokeGen {
             }
         });
 
+        //deleteButtom
         deleteAllButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
+                //clear all the item in the pokemonMap
                 pokemonMap.clear();
                 speciesComboBox.setSelectedIndex(0);
+                //clear all the icon
                 clearIcon(slot0);
                 clearIcon(slot1);
                 clearIcon(slot2);
@@ -218,6 +196,7 @@ public class PokeGen {
                 clearIcon(slot6);
                 clearIcon(slot7);
                 clearIcon(slot8);
+                //save file
                 try {
                     saveFile("morris_new_pokemon.json");
                 } catch (IOException e) {
@@ -225,8 +204,45 @@ public class PokeGen {
                 }
             }
         });
+        hpField.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                clicktext(hpField);
+            }
+        });
+        atkField.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                clicktext(atkField);
+            }
+        });
+        defField.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                clicktext(defField);
+            }
+        });
+        spAtkField.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                clicktext(spAtkField);
+            }
+        });
+        spDefField.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                clicktext(spDefField);
+            }
+        });
+        speedField.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                clicktext(speedField);
+            }
+        });
     }
 
+    //clear Icon function
     private void clearIcon(JPanel panel) {
         JLabel label = (JLabel) panel.getComponent(0);
         label.setIcon(null);
@@ -237,14 +253,18 @@ public class PokeGen {
         label.setIcon(icon);
     }
 
+
     public void setPokemon(JPanel panel) {
+        //get the index if the selected pokemon
         int id = speciesComboBox.getSelectedIndex();
         if (id > 0) {
+            //save the individual to an array,then to a value data
             int[] arr = new int[6];
             for (int i = 0; i < 6; i++) {
                 arr[i] = Integer.parseInt(statField.get(i).getText());
             }
             PokemonValueData valueArray = new PokemonValueData(arr);
+            //save the information, and put it into pokemonMap
             String nick = nickNameField.getText();
             String name = pokedex.getPokemonData(id - 1).getSpeciesName();
             PokemonIndividualData pokemon = new PokemonIndividualData(pokedex.getPokemonData(id - 1).getId(), name, nick, valueArray);
@@ -255,24 +275,28 @@ public class PokeGen {
 
     public void loadPokemon(JPanel panel) {
         if (pokemonMap.containsKey(panel)) {
+            //get the Item from the selected slot and show the data of the pokemon
             PokemonIndividualData pokemon = pokemonMap.get(panel);
             String str = Integer.toString(pokemon.getId());
             str = str.concat(":");
             str = str.concat(pokemon.getSpeciesName());
             speciesComboBox.setSelectedItem(str);
-            int[] arr = pokemon.getSpeciesValue().getValArray();
+            int[] arr = pokemon.getIndividualValue().getValArray();
+            //load the text to the textfield from pokemonMap
             for (int i = 0; i < 6; i++) {
                 statField.get(i).setText(Integer.toString(arr[i]));
             }
+            //load the nickname
             nickNameField.setText(pokemon.getNickName());
         } else {
+            //if doesn't have save yet,show"---------"
             speciesComboBox.setSelectedIndex(0);
         }
 
     }
 
     void saveFile(String fileName) throws IOException {
-        //TODO sort list before save to file
+        //sort list before save to file
         ArrayList<PokemonIndividualData> pokemonIndividualList = new ArrayList<>();
         for (PokemonIndividualData poke : pokemonMap.values()) {
             pokemonIndividualList.add(poke);
@@ -288,7 +312,15 @@ public class PokeGen {
         writer.close();
 
     }
-
+    void clicktext(JTextField text)
+    {
+        if (Integer.parseInt(currentSelectedField.getText()) < 0)
+            currentSelectedField.setText("0");
+        else if (Integer.parseInt(currentSelectedField.getText()) > 31)
+            currentSelectedField.setText("31");
+        //change the selected field
+        currentSelectedField = text;
+    }
     public static void main(String[] args) {
         JFrame frame = new JFrame("PokeGen");
         frame.setContentPane(new PokeGen().root);

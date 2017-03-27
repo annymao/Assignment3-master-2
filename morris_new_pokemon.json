@@ -1,1 +1,77 @@
-[{"speciesName":"Charmeleon","id":5,"nickName":"","individualValue":{"valArray":[0,0,0,0,0,0]}}]
+[
+  {
+    "speciesName": "Mankey",
+    "id": 56,
+    "nickName": "火爆猴ㄚㄚㄚㄚ",
+    "individualValue": {
+      "valArray": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "speciesName": "Growlithe",
+    "id": 58,
+    "nickName": "狗狗",
+    "individualValue": {
+      "valArray": [
+        10,
+        31,
+        10,
+        10,
+        10,
+        31
+      ]
+    }
+  },
+  {
+    "speciesName": "Cresselia",
+    "id": 488,
+    "nickName": "粉紅色",
+    "individualValue": {
+      "valArray": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "speciesName": "Lunala",
+    "id": 792,
+    "nickName": "000",
+    "individualValue": {
+      "valArray": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "speciesName": "Marshadow",
+    "id": 802,
+    "nickName": "一直看成mashmallow",
+    "individualValue": {
+      "valArray": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        6
+      ]
+    }
+  }
+]

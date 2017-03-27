@@ -35,7 +35,7 @@ public class PokemonIndividualData implements Comparable<PokemonIndividualData>{
     public String getSpeciesName(){
         return speciesName;
     }
-    public PokemonValueData getSpeciesValue() {
+    public PokemonValueData getIndividualValue() {
         return individualValue;
     }
     @Override
