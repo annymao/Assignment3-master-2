@@ -44,6 +44,7 @@ public class PokeGen {
     private JTextField spAtkField;
     private JTextField spDefField;
     private JTextField speedField;
+    private JButton deleteAllButton;
     private JPanel currentSelectedPanel;
     private ArrayList<JTextField> statField;
     private JTextField currentSelectedField=hpField;
@@ -215,8 +216,33 @@ public class PokeGen {
             }
         });
 
+        deleteAllButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                pokemonMap.clear();
+                speciesComboBox.setSelectedIndex(0);
+                clearIcon(slot0);
+                clearIcon(slot1);
+                clearIcon(slot2);
+                clearIcon(slot3);
+                clearIcon(slot4);
+                clearIcon(slot5);
+                clearIcon(slot6);
+                clearIcon(slot7);
+                clearIcon(slot8);
+                try {
+                    saveFile("morris_new_pokemon.json");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
-
+    private void clearIcon(JPanel panel)
+    {
+        JLabel label = (JLabel) panel.getComponent(0);
+        label.setIcon(null);
+    }
     private void setPokemonIcon(int id,JLabel label)
     {
         ImageIcon icon = new ImageIcon(PokemonSprite.getSprite(id));
