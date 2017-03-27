@@ -47,31 +47,31 @@ public class PokeGen {
     private JButton deleteAllButton;
     private JPanel currentSelectedPanel;
     private ArrayList<JTextField> statField;
-    private JTextField currentSelectedField=hpField;
+    private JTextField currentSelectedField = hpField;
     Pokedex pokedex;
     HashMap<JPanel, PokemonIndividualData> pokemonMap;
 
     public PokeGen() {
         statField = new ArrayList<>();
-        //TODO: Add the "stat" labels into statField
+        //Add the "stat" labels into statField
         statField.add(hpField);
         statField.add(atkField);
         statField.add(defField);
         statField.add(spAtkField);
         statField.add(spDefField);
         statField.add(speedField);
-        //TODO: Use Pokedex to get pokemon species data
-        pokedex=new Pokedex("bin/pokemonData.json");
-        currentSelectedPanel=slot0;
+        //Use Pokedex to get pokemon species data
+        pokedex = new Pokedex("bin/pokemonData.json");
+        //let current selected panel be the first slot
+        currentSelectedPanel = slot0;
         currentSelectedPanel.setBorder(BorderFactory.createBevelBorder(1));
-        pokemonMap=new HashMap<>();
-        //TODO: Add items into combobox. Each item should be a concat string of pokemon id and name from pokedex
+        pokemonMap = new HashMap<>();
+        //Add items into combobox. Each item should be a concat string of pokemon id and name from pokedex
         speciesComboBox.addItem("----------------");
-        for(int i=0;i<pokedex.getPokemonSize();i++)
-        {
-            String str= Integer.toString(pokedex.getPokemonData(i).getId());
-            str=str.concat(":");
-            str=str.concat(pokedex.getPokemonData(i).getSpeciesName());
+        for (int i = 0; i < pokedex.getPokemonSize(); i++) {
+            String str = Integer.toString(pokedex.getPokemonData(i).getId());
+            str = str.concat(":");
+            str = str.concat(pokedex.getPokemonData(i).getSpeciesName());
             speciesComboBox.addItem(str);
         }
 
@@ -79,48 +79,36 @@ public class PokeGen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO update fields when select items in combobox
-                int id=speciesComboBox.getSelectedIndex();
-                if(id>0)
-                {
-                    int [] arr=new int[6];
-                    arr=pokedex.getPokemonData(id-1).getSpeciesValue().getValArray();
-                    for(int i=0;i<6;i++)
-                    {
-                        statField.get(i).setText("0");
-                    }
-                    JLabel currentLabel = (JLabel) currentSelectedPanel.getComponent(0);
-                    setPokemonIcon(id - 1, currentLabel);
-
+                int id = speciesComboBox.getSelectedIndex();
+                //set all the field=0
+                for (int i = 0; i < 6; i++) {
+                    statField.get(i).setText("0");
                 }
-                else
-                {
-                    for(int i=0;i<6;i++)
-                    {
-                        statField.get(i).setText("0");
-                    }
-                    nickNameField.setText("");
-                    JLabel currentLabel = (JLabel) currentSelectedPanel.getComponent(0);
+                JLabel currentLabel = (JLabel) currentSelectedPanel.getComponent(0);
+                if (id > 0) {
+                    setPokemonIcon(id - 1, currentLabel);
+                } else {
+                    //if selected the"-----", set the imgIcon=null
                     currentLabel.setIcon(null);
                 }
 
             }
         });
+        //the mouseListener for click the slot
         MouseListener click = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(pokemonMap.containsKey(currentSelectedPanel))
-                {
-                    JLabel currentLabel = (JLabel) currentSelectedPanel.getComponent(0);
-                    int id=speciesComboBox.getSelectedIndex();
-                    setPokemonIcon(id-1, currentLabel);
-
-                }
-                else
-                {
+                if (pokemonMap.containsKey(currentSelectedPanel)) {
+                    PokemonIndividualData pokemon = pokemonMap.get(currentSelectedPanel);
+                    String str = Integer.toString(pokemon.getId());
+                    str = str.concat(":");
+                    str = str.concat(pokemon.getSpeciesName());
+                    speciesComboBox.setSelectedItem(str);
+                } else {
                     speciesComboBox.setSelectedIndex(0);
                 }
                 currentSelectedPanel.setBorder(BorderFactory.createEtchedBorder());
-                currentSelectedPanel=(JPanel)e.getComponent();
+                currentSelectedPanel = (JPanel) e.getComponent();
                 currentSelectedPanel.setBorder(BorderFactory.createBevelBorder(1));
                 loadPokemon(currentSelectedPanel);
             }
@@ -157,11 +145,11 @@ public class PokeGen {
         MouseListener text = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(Integer.parseInt(currentSelectedField.getText())<0)
+                if (Integer.parseInt(currentSelectedField.getText()) < 0)
                     currentSelectedField.setText("0");
-                else if(Integer.parseInt(currentSelectedField.getText())>32)
+                else if (Integer.parseInt(currentSelectedField.getText()) > 32)
                     currentSelectedField.setText("32");
-                currentSelectedField=(JTextField) e.getComponent();
+                currentSelectedField = (JTextField) e.getComponent();
 
             }
 
@@ -238,60 +226,55 @@ public class PokeGen {
             }
         });
     }
-    private void clearIcon(JPanel panel)
-    {
+
+    private void clearIcon(JPanel panel) {
         JLabel label = (JLabel) panel.getComponent(0);
         label.setIcon(null);
     }
-    private void setPokemonIcon(int id,JLabel label)
-    {
+
+    private void setPokemonIcon(int id, JLabel label) {
         ImageIcon icon = new ImageIcon(PokemonSprite.getSprite(id));
         label.setIcon(icon);
     }
+
     public void setPokemon(JPanel panel) {
         int id = speciesComboBox.getSelectedIndex();
-        if(id>0)
-        {
-            int [] arr=new int[6];
-            for(int i=0;i<6;i++)
-            {
-                arr[i]=Integer.parseInt(statField.get(i).getText());
+        if (id > 0) {
+            int[] arr = new int[6];
+            for (int i = 0; i < 6; i++) {
+                arr[i] = Integer.parseInt(statField.get(i).getText());
             }
             PokemonValueData valueArray = new PokemonValueData(arr);
-            String nick=nickNameField.getText();
-            String name=pokedex.getPokemonData(id-1).getSpeciesName();
-            PokemonIndividualData pokemon=new PokemonIndividualData(pokedex.getPokemonData(id-1).getId(),name,nick,valueArray);
-            pokemonMap.put(panel,pokemon);
+            String nick = nickNameField.getText();
+            String name = pokedex.getPokemonData(id - 1).getSpeciesName();
+            PokemonIndividualData pokemon = new PokemonIndividualData(pokedex.getPokemonData(id - 1).getId(), name, nick, valueArray);
+            pokemonMap.put(panel, pokemon);
         }
 
     }
 
     public void loadPokemon(JPanel panel) {
-        if(pokemonMap.containsKey(panel))
-        {
-
+        if (pokemonMap.containsKey(panel)) {
             PokemonIndividualData pokemon = pokemonMap.get(panel);
             String str = Integer.toString(pokemon.getId());
-            str=str.concat(":");
-            str=str.concat(pokemon.getSpeciesName());
+            str = str.concat(":");
+            str = str.concat(pokemon.getSpeciesName());
             speciesComboBox.setSelectedItem(str);
             int[] arr = pokemon.getSpeciesValue().getValArray();
             for (int i = 0; i < 6; i++) {
                 statField.get(i).setText(Integer.toString(arr[i]));
             }
             nickNameField.setText(pokemon.getNickName());
-        }
-        else
-        {
+        } else {
             speciesComboBox.setSelectedIndex(0);
         }
 
     }
+
     void saveFile(String fileName) throws IOException {
         //TODO sort list before save to file
-        ArrayList<PokemonIndividualData> pokemonIndividualList=new ArrayList<>();
-        for(PokemonIndividualData poke:pokemonMap.values())
-        {
+        ArrayList<PokemonIndividualData> pokemonIndividualList = new ArrayList<>();
+        for (PokemonIndividualData poke : pokemonMap.values()) {
             pokemonIndividualList.add(poke);
         }
         Collections.sort(pokemonIndividualList);
@@ -300,11 +283,12 @@ public class PokeGen {
         //create a gson object
         Gson gson = new Gson();
         //use gson to write object into json file, remember to convert ArrayList back to normal array first
-        gson.toJson(pokemonIndividualList.toArray(),PokemonSpeciesData[].class,writer);
+        gson.toJson(pokemonIndividualList.toArray(), PokemonSpeciesData[].class, writer);
         //close the writer, very important!!!
         writer.close();
 
     }
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("PokeGen");
         frame.setContentPane(new PokeGen().root);

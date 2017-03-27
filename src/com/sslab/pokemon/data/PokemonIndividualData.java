@@ -15,14 +15,14 @@ public class PokemonIndividualData implements Comparable<PokemonIndividualData>{
     private String speciesName;
     private int id;
     private String nickName;
-    private PokemonValueData speciesValue;
-
+    private PokemonValueData individualValue;
+    //constructor
     public PokemonIndividualData(int id, String speciesName,String name,PokemonValueData valueData)
     {
         this.id = id;
         this.speciesName = speciesName;
         this.nickName=name;
-        this.speciesValue = valueData;
+        this.individualValue = valueData;
     }
 
     public int getId() {
@@ -36,7 +36,7 @@ public class PokemonIndividualData implements Comparable<PokemonIndividualData>{
         return speciesName;
     }
     public PokemonValueData getSpeciesValue() {
-        return speciesValue;
+        return individualValue;
     }
     @Override
     public int compareTo(PokemonIndividualData o)

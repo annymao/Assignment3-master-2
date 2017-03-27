@@ -314,126 +314,6 @@
                   </component>
                 </children>
               </grid>
-              <grid id="975eb" binding="slot2" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <minimum-size width="60" height="60"/>
-                    <preferred-size width="60" height="60"/>
-                  </grid>
-                </constraints>
-                <properties/>
-                <border type="etched">
-                  <title-color color="-4473925"/>
-                </border>
-                <children>
-                  <component id="673ab" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value=""/>
-                      <verifyInputWhenFocusTarget value="false"/>
-                    </properties>
-                  </component>
-                </children>
-              </grid>
-              <grid id="d5373" binding="slot3" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
-                <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <minimum-size width="60" height="60"/>
-                    <preferred-size width="60" height="60"/>
-                  </grid>
-                </constraints>
-                <properties/>
-                <border type="etched">
-                  <title-color color="-4473925"/>
-                </border>
-                <children>
-                  <component id="7ac06" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value=""/>
-                      <verifyInputWhenFocusTarget value="false"/>
-                    </properties>
-                  </component>
-                </children>
-              </grid>
-              <grid id="f3cc6" binding="slot1" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <minimum-size width="60" height="60"/>
-                    <preferred-size width="60" height="60"/>
-                  </grid>
-                </constraints>
-                <properties/>
-                <border type="etched">
-                  <title-color color="-4473925"/>
-                </border>
-                <children>
-                  <component id="a8471" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value=""/>
-                      <verifyInputWhenFocusTarget value="false"/>
-                    </properties>
-                  </component>
-                </children>
-              </grid>
-              <grid id="b3fe1" binding="slot5" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <minimum-size width="60" height="60"/>
-                    <preferred-size width="60" height="60"/>
-                  </grid>
-                </constraints>
-                <properties/>
-                <border type="etched">
-                  <title-color color="-4473925"/>
-                </border>
-                <children>
-                  <component id="3b4ed" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value=""/>
-                      <verifyInputWhenFocusTarget value="false"/>
-                    </properties>
-                  </component>
-                </children>
-              </grid>
-              <grid id="a5bc2" binding="slot4" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
-                <constraints>
-                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <minimum-size width="60" height="60"/>
-                    <preferred-size width="60" height="60"/>
-                  </grid>
-                </constraints>
-                <properties/>
-                <border type="etched">
-                  <title-color color="-4473925"/>
-                </border>
-                <children>
-                  <component id="808dd" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value=""/>
-                      <verifyInputWhenFocusTarget value="false"/>
-                    </properties>
-                  </component>
-                </children>
-              </grid>
               <grid id="fbe02" binding="slot6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
@@ -499,6 +379,126 @@
                     </constraints>
                     <properties>
                       <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="d5373" binding="slot3" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="60" height="60"/>
+                    <preferred-size width="60" height="60"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="etched">
+                  <title-color color="-4473925"/>
+                </border>
+                <children>
+                  <component id="7ac06" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
+                      <verifyInputWhenFocusTarget value="false"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="975eb" binding="slot2" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="60" height="60"/>
+                    <preferred-size width="60" height="60"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="etched">
+                  <title-color color="-4473925"/>
+                </border>
+                <children>
+                  <component id="673ab" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
+                      <verifyInputWhenFocusTarget value="false"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="f3cc6" binding="slot1" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="60" height="60"/>
+                    <preferred-size width="60" height="60"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="etched">
+                  <title-color color="-4473925"/>
+                </border>
+                <children>
+                  <component id="a8471" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
+                      <verifyInputWhenFocusTarget value="false"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="b3fe1" binding="slot5" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="60" height="60"/>
+                    <preferred-size width="60" height="60"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="etched">
+                  <title-color color="-4473925"/>
+                </border>
+                <children>
+                  <component id="3b4ed" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
+                      <verifyInputWhenFocusTarget value="false"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="a5bc2" binding="slot4" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="60" height="60"/>
+                    <preferred-size width="60" height="60"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="etched">
+                  <title-color color="-4473925"/>
+                </border>
+                <children>
+                  <component id="808dd" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
+                      <verifyInputWhenFocusTarget value="false"/>
                     </properties>
                   </component>
                 </children>
